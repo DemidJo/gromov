@@ -5,6 +5,7 @@ html_dir="html"
 html_file="web.html"
 jpeg_dir="jpeg"
 video_dir="video"
+doc_dir="pdf"
 
 # Проверяем, существует ли директория и файл
 if [ ! -d "$html_dir" ]; then
@@ -19,6 +20,10 @@ fi
 
 if [ ! -d "$jpeg_dir" ]; then
     echo "Директория '$jpeg_dir' не найдена."
+    exit 1
+fi
+if [ ! -d "$doc_dir" ]; then
+    echo "Директория '$doc_dir' не найдена."
     exit 1
 fi
 
@@ -48,6 +53,9 @@ sudo cp -r "$jpeg_dir" "/var/www/html/"
 
 # Перенос папки video в директорию по умолчанию для Apache
 sudo cp -r "$video_dir" "/var/www/html/"
+
+# Перенос папки pdf в директорию по умолчанию для Apache
+sudo cp -r "$doc_dir" "/var/www/html/"
 
 # Перезапуск Apache
 sudo systemctl restart apache2
