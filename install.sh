@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo apt update
+sudo apt upgrade
 
 chmod +x ConvertWordToPdf.sh
 chmod +x ConvertPhoto.sh
