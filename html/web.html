@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя галерея</title>
+    <title>Моя страница</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@
         }
         .carousel {
             position: relative;
-            max-width: 800px; /* Увеличенная максимальная ширина карусели */
+            max-width: 400px; /* Уменьшенная максимальная ширина карусели */
             margin: 20px auto; /* Центрирование карусели */
             overflow: hidden;
             border-radius: 10px; /* Закругленные углы */
@@ -36,6 +36,11 @@
         .carousel-image, .carousel-video {
             min-width: 100%; /* Каждое изображение или видео занимает 100% ширины карусели */
             border-radius: 10px; /* Закругленные углы для изображений и видео */
+        }
+        .carousel-image {
+            width: 400px; /* Фиксированная ширина для изображений */
+            height: 300px; /* Фиксированная высота для изображений */
+            object-fit: cover; /* Сохранение пропорций изображения */
         }
         .carousel-controls {
             position: absolute;
@@ -87,48 +92,62 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
         }
         .pdf-image {
-            width: 100px; /* Ширина изображения PDF */
-            margin-bottom: 10px; /* Отступ снизу */
+            display: none; /* Скрываем иконку PDF */
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: nowrap; /* Расположение документов в одну строчку */
+            overflow-x: auto; /* Горизонтальная прокрутка, если документы не помещаются */
+            gap: 20px; /* Отступ между документами */
+            padding: 20px;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Моя галерея</h1>
-    <p>Добро пожаловать в мою галерею фото и видео!</p>
+    <h1>Моя страница</h1>
+    <p>Добро пожаловать на страницу!</p>
 </header>
 
 <!-- Карусель для фотографий -->
 <div class="carousel">
     <div class="carousel-images">
-        <img class="carousel-image" src="http://127.0.0.1/jpeg/3naOZoVSnb8.jpeg" alt="Описание фото 1">
-        <img class="carousel-image" src="path/to/photo2.jpg" alt="Описание фото 2">
-        <img class="carousel-image" src="path/to/photo3.jpg" alt="Описание фото 3">
-        <img class="carousel-image" src="path/to/photo4.jpg" alt="Описание фото 4">
-        <img class="carousel-image" src="path/to/photo5.jpg" alt="Описание фото 5">
+        <img class="carousel-image" src="http://127.0.0.1/jpeg/3naOZoVSnb8.jpeg" alt="фото">
+        <img class="carousel-image" src="http://127.0.0.1/jpeg/LjB2grKNaww.jpeq" alt="фото">
+        <img class="carousel-image" src="http://127.0.0.1/jpeg/oKs8JYdkXmY.jpeg" alt="фото">
+        <img class="carousel-image" src="http://127.0.0.1/jpeg/YUI49xn6NcE.jpeg" alt="фото">
+        <img class="carousel-image" src="http://127.0.0.1/jpeg/yyHpIwPMzGQ.jpeg" alt="фото">
     </div>
     <div class="carousel-controls">
         <button class="control-button" id="prevImageBtn">&#10094;</button>
         <button class="control-button" id="nextImageBtn">&#10095;</button>
     </div>
 </div>
-<div class="caption">Описание фотографии</div>
+<div class="caption">Фотографии</div>
 
 <!-- Карусель для видео -->
 <div class="carousel">
     <div class="carousel-videos">
-        <video class="carousel-video" width="800" height="450" controls>
-            <source src="path/to/video1.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
+        <video class="carousel-video" width="400" height="300" controls>
+            <source src="http://127.0.0.1/video/19 (online-video-cutter.com).mp4" type="video/mp4">
+
         </video>
-        <video class="carousel-video" width="800" height="450" controls>
-            <source src="path/to/video2.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
+        <video class="carousel-video" width="400" height="300" controls>
+            <source src="http://127.0.0.1/video/19 (online-video-cutter.com) (1).mp4" type="video/mp4">
+
         </video>
-        <video class="carousel-video" width="800" height="450" controls>
-            <source src="path/to/video3.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
+        <video class="carousel-video" width="400" height="300" controls>
+            <source src="http://127.0.0.1/19 (online-video-cutter.com) (2).mp4" type="video/mp4">
+
+        </video>
+        <video class="carousel-video" width="400" height="300" controls>
+            <source src="http://127.0.0.1/19 (online-video-cutter.com) (3).mp4" type="video/mp4">
+
+        </video>
+        <video class="carousel-video" width="400" height="300" controls>
+            <source src="http://127.0.0.1/19 (online-video-cutter.com) (4).mp4" type="video/mp4">
+
         </video>
     </div>
     <div class="carousel-controls">
@@ -136,25 +155,30 @@
         <button class="control-button" id="nextVideoBtn">&#10095;</button>
     </div>
 </div>
-<div class="caption">Описание видео</div>
+<div class="caption">Ну, погоди!</div>
 
 <div class="gallery">
     <!-- Раздел для PDF файлов -->
     <div class="pdf-item">
-        <img class="pdf-image" src="path/to/pdf-icon.png" alt="Иконка PDF">
-        <a href="path/to/document1.pdf" target="_blank">Документ 1</a>
-        <div class="caption">Описание PDF 1</div>
+        <a href="http://127.0.0.1/word/IST-431m_NefedovDI_pr3.docx" target="_blank">Документ 1</a>
+        <div class="caption">PDF 1</div>
     </div>
     <div class="pdf-item">
-        <img class="pdf-image" src="path/to/pdf-icon.png" alt="Иконка PDF">
-        <a href="path/to/document2.pdf" target="_blank">Документ 2</a>
-        <div class="caption">Описание PDF 2</div>
+        <a href="http://127.0.0.1/word/IST-431m_NefedovDI_pr4.docx" target="_blank">Документ 2</a>
+        <div class="caption">PDF 2</div>
     </div>
-    <!-- Добавьте больше PDF файлов по аналогии -->
+    <div class="pdf-item">
+        <a href="http://127.0.0.1/word/ИСТ-431м_НефедовДИ_пр1.docx" target="_blank">Документ 3</a>
+        <div class="caption">PDF 3</div>
+    </div>
+    <div class="pdf-item">
+        <a href="http://127.0.0.1/word/ИСТ-431м_НефедовДИ_пр2.docx" target="_blank">Документ 4</a>
+        <div class="caption">PDF 4</div>
+    </div>
 </div>
 
 <footer>
-    <p>&copy; 2023 Моя галерея. Все права защищены.</p>
+    <p>&copy; 2024 Моя страница. Все права защищены.</p>
 </footer>
 
 <script>
@@ -198,7 +222,7 @@
         const offset = -currentVideoIndex * 100; // Сдвиг в процентах
         document.querySelector('.carousel-videos').style.transform = `translateX(${offset}%)`;
         // Обновление описания видео
-        document.querySelector('.caption').textContent = `Описание видео ${currentVideoIndex + 1}`;
+        document.querySelector('.caption').textContent = `Ну, погоди! ${currentVideoIndex + 1}`;
     }
 </script>
 
