@@ -107,6 +107,25 @@
             gap: 20px; /* Отступ между документами */
             padding: 20px;
         }
+        .photo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .photo-frame {
+            width: 400px; /* Фиксированная ширина рамки */
+            height: 300px; /* Фиксированная высота рамки */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -137,23 +156,18 @@
     <div class="carousel-videos">
         <video class="carousel-video" width="400" height="300" controls>
             <source src="http://127.0.0.1/video/19 (online-video-cutter.com).mp4" type="video/mp4">
-
         </video>
         <video class="carousel-video" width="400" height="300" controls>
             <source src="http://127.0.0.1/video/19 (online-video-cutter.com) (1).mp4" type="video/mp4">
-
         </video>
         <video class="carousel-video" width="400" height="300" controls>
             <source src="http://127.0.0.1/video/19 (online-video-cutter.com) (2).mp4" type="video/mp4">
-
         </video>
         <video class="carousel-video" width="400" height="300" controls>
             <source src="http://127.0.0.1/video/19 (online-video-cutter.com) (3).mp4" type="video/mp4">
-
         </video>
         <video class="carousel-video" width="400" height="300" controls>
             <source src="http://127.0.0.1/video/19 (online-video-cutter.com) (4).mp4" type="video/mp4">
-
         </video>
     </div>
     <div class="carousel-controls">
@@ -162,6 +176,24 @@
     </div>
 </div>
 <div class="caption2">Ну, погоди!</div>
+
+<div class="photo-container">
+    <div class="photo-frame">
+        <img src="http://127.0.0.1/jpeg/3naOZoVSnb8.jpeg" alt="фото">
+    </div>
+    <div class="photo-frame">
+        <img src="http://127.0.0.1/jpeg/LjB2grKNaww.jpeg" alt="фото">
+    </div>
+    <div class="photo-frame">
+        <img src="http://127.0.0.1/jpeg/oKs8JYdkXmY.jpeg" alt="фото">
+    </div>
+    <div class="photo-frame">
+        <img src="http://127.0.0.1/jpeg/YUI49xn6NcE.jpeg" alt="фото">
+    </div>
+    <div class="photo-frame">
+        <img src="http://127.0.0.1/jpeg/yyHpIwPMzGQ.jpeg" alt="фото">
+    </div>
+</div>
 
 <div class="gallery">
     <!-- Раздел для PDF файлов -->
