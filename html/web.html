@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя галерея</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .carousel {
+            position: relative;
+            max-width: 800px; /* Увеличенная максимальная ширина карусели */
+            margin: 20px auto; /* Центрирование карусели */
+            overflow: hidden;
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+        }
+        .carousel-images, .carousel-videos {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-image, .carousel-video {
+            min-width: 100%; /* Каждое изображение или видео занимает 100% ширины карусели */
+            border-radius: 10px; /* Закругленные углы для изображений и видео */
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .control-button {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .control-button:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+        .caption {
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em; /* Увеличенный шрифт для описания */
+            color: #555; /* Более светлый цвет текста */
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #ddd;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .pdf-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            padding: 10px;
+            transition: transform 0.2s;
+            width: 300px; /* Устанавливаем фиксированную ширину для элементов PDF */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+        .pdf-image {
+            width: 100px; /* Ширина изображения PDF */
+            margin-bottom: 10px; /* Отступ снизу */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Моя галерея</h1>
+    <p>Добро пожаловать в мою галерею фото и видео!</p>
+</header>
+
+<!-- Карусель для фотографий -->
+<div class="carousel">
+    <div class="carousel-images">
+        <img class="carousel-image" src="path/to/photo1.jpg" alt="Описание фото 1">
+        <img class="carousel-image" src="path/to/photo2.jpg" alt="Описание фото 2">
+        <img class="carousel-image" src="path/to/photo3.jpg" alt="Описание фото 3">
+        <img class="carousel-image" src="path/to/photo4.jpg" alt="Описание фото 4">
+        <img class="carousel-image" src="path/to/photo5.jpg" alt="Описание фото 5">
+    </div>
+    <div class="carousel-controls">
+        <button class="control-button" id="prevImageBtn">&#10094;</button>
+        <button class="control-button" id="nextImageBtn">&#10095;</button>
+    </div>
+</div>
+<div class="caption">Описание фотографии</div>
+
+<!-- Карусель для видео -->
+<div class="carousel">
+    <div class="carousel-videos">
+        <video class="carousel-video" width="800" height="450" controls>
+            <source src="path/to/video1.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video class="carousel-video" width="800" height="450" controls>
+            <source src="path/to/video2.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video class="carousel-video" width="800" height="450" controls>
+            <source src="path/to/video3.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+    <div class="carousel-controls">
+        <button class="control-button" id="prevVideoBtn">&#10094;</button>
+        <button class="control-button" id="nextVideoBtn">&#10095;</button>
+    </div>
+</div>
+<div class="caption">Описание видео</div>
+
+<div class="gallery">
+    <!-- Раздел для PDF файлов -->
+    <div class="pdf-item">
+        <img class="pdf-image" src="path/to/pdf-icon.png" alt="Иконка PDF">
+        <a href="path/to/document1.pdf" target="_blank">Документ 1</a>
+        <div class="caption">Описание PDF 1</div>
+    </div>
+    <div class="pdf-item">
+        <img class="pdf-image" src="path/to/pdf-icon.png" alt="Иконка PDF">
+        <a href="path/to/document2.pdf" target="_blank">Документ 2</a>
+        <div class="caption">Описание PDF 2</div>
+    </div>
+    <!-- Добавьте больше PDF файлов по аналогии -->
+</div>
+
+<footer>
+    <p>&copy; 2023 Моя галерея. Все права защищены.</p>
+</footer>
+
+<script>
+    // Карусель для изображений
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const totalImages = images.length;
+
+    document.getElementById('nextImageBtn').addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex + 1) % totalImages;
+        updateImageCarousel();
+    });
+
+    document.getElementById('prevImageBtn').addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+        updateImageCarousel();
+    });
+
+    function updateImageCarousel() {
+        const offset = -currentImageIndex * 100; // Сдвиг в процентах
+        document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        document.querySelector('.caption').textContent = images[currentImageIndex].alt;
+    }
+
+    // Карусель для видео
+    let currentVideoIndex = 0;
+    const videos = document.querySelectorAll('.carousel-video');
+    const totalVideos = videos.length;
+
+    document.getElementById('nextVideoBtn').addEventListener('click', () => {
+        currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
+        updateVideoCarousel();
+    });
+
+    document.getElementById('prevVideoBtn').addEventListener('click', () => {
+        currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos;
+        updateVideoCarousel();
+    });
+
+    function updateVideoCarousel() {
+        const offset = -currentVideoIndex * 100; // Сдвиг в процентах
+        document.querySelector('.carousel-videos').style.transform = `translateX(${offset}%)`;
+        // Обновление описания видео
+        document.querySelector('.caption').textContent = `Описание видео ${currentVideoIndex + 1}`;
+    }
+</script>
+
+</body>
+</html>
