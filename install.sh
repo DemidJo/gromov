@@ -1,6 +1,8 @@
 #!/bin/bash
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install apache2 -y
+sudo apt install libreoffice -y
 
 chmod +x ConvertWordToPdf.sh
 chmod +x ConvertPhoto.sh

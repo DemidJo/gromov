@@ -40,7 +40,7 @@
         .carousel-image {
             width: 400px; /* Фиксированная ширина для изображений */
             height: 300px; /* Фиксированная высота для изображений */
-            object-fit: cover; /* Сохранение пропорций изображения */
+            object-fit: contain; /* Изображение полностью помещается внутри контейнера */
         }
         .carousel-controls {
             position: absolute;
@@ -120,11 +120,14 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
     </style>
 </head>
